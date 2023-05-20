@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+body ::-webkit-scrollbar {
+  display: none;
+}
+.header {
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 4rem;
+  font-weight: 100;
+}
+.mainContainer {
+  margin-top: 4vh;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+.cardContainer {
+  padding: 2%;
+  margin-bottom: 1%;
+  width: 90%;
+  min-height: 40vh;
+  border: thin solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.imageContainer {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+.image {
+  width: 95% !important;
+  height: 90% !important;
+}
+.descriptionContainer {
+  /* border: 1px solid green; */
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-left: 2%;
+}
+.select {
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  border: thin solid white;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin-top: 4vh;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  padding: 2%;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
+  /* border: 1px solid white; */
+}
+th {
+  background-color: white;
+  color: black;
+}
+td {
+  background-color: rgb(180, 109, 68);
+  color: white;
+  text-align: center;
+  width: 50%;
+}
+table {
+  min-width: 40%;
+  min-height: 20%;
+}
+.btn {
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  /* border: thin solid white;
+   */
+}
+.btn.active {
+  background-color: green;
+}
+.btn:focus,
+.btn:active,
+.btn:hover {
+  outline: none;
+  border: none;
+}
+.btn:active {
+  transform: translateY(2px);
+}
+.btnContainer {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2%;
+}
+.productQuantity {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.totalExpense {
+  margin-left: 1%;
+  color: yellow;
+}
+.stockQuant {
+  color: yellow;
+}

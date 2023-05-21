@@ -1,35 +1,74 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import User from "./components/User";
 
-const object = { firstName: "", secondName: "", email: "" };
-const errorObject = { firstNameError: "", secondNameError: "", emailError: "" };
+const object = { employeeId: "", firstName: "", secondName: "", email: "" };
+const errorObject = {
+  employeeIdError: "",
+  firstNameError: "",
+  secondNameError: "",
+  emailError: "",
+};
 
 function App() {
   const [formDetails, setFormDetails] = useState(object);
   const [formErrors, setFormErrors] = useState(errorObject);
+  const [users, setUsers] = useState([]);
   function handleFormInputs(e) {
     let field = e.target.name;
     let value = e.target.value;
     setFormDetails((obj) => ({ ...obj, [field]: value }));
-  }
-  function submit() {
-    const { firstName, secondName, email } = formDetails;
+    let employeeIdError =
+      field === "employeeId" &&
+      value.length !== 4 &&
+      "employeeId must be of 4 digits only";
     let firstNameError =
-      firstName.length < 3 && "First name must contain at least 3 characters";
+      field === "firstName" &&
+      value.length < 3 &&
+      "First name must contain at least 3 characters";
     let secondNameError =
-      secondName.length < 3 && "Second name must contain at least 3 characters";
+      field === "secondName" &&
+      value.length < 3 &&
+      "Second name must contain at least 3 characters";
     let emailError =
-      email.length < 3 && "Email must contain at least 3 characters";
+      field === "email" &&
+      value.length < 3 &&
+      "Email must contain at least 3 characters";
     setFormErrors((obj) => ({
       ...obj,
+      employeeIdError,
       firstNameError,
       secondNameError,
       emailError,
     }));
   }
+  function submit() {
+    const { employeeIdError, firstNameError, secondNameError, emailError } =
+      formErrors;
+    if (
+      !employeeIdError &&
+      !firstNameError &&
+      !secondNameError &&
+      !emailError
+    ) {
+      setUsers((oldUsers) => [...oldUsers, { ...formDetails }]);
+      setFormDetails(object);
+    }
+  }
   return (
     <main>
       <div className="formContainer">
+        <label>EmployeeId </label>
+        <div>
+          <input
+            placeholder="1000"
+            onChange={handleFormInputs}
+            value={formDetails.employeeId}
+            type="text"
+            name="employeeId"
+          />
+          {formErrors.employeeIdError && <p>{formErrors.employeeIdError}</p>}
+        </div>
         <label>First Name </label>
         <div>
           <input
@@ -67,6 +106,10 @@ function App() {
       <button className="btn" onClick={submit}>
         Submit
       </button>
+      <div className="employeeContainer">
+        {users.length > 0 &&
+          users.map((user) => <User {...user} key={user.id} />)}
+      </div>
     </main>
   );
 }

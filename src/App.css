@@ -30,6 +30,7 @@ body::-webkit-scrollbar {
   align-content: center;
   justify-items: center;
   justify-content: center;
+  gap: 0.25rem;
   /* border: 1px solid black; */
 }
 .totalExpense {

@@ -1,12 +1,14 @@
 :root {
   --primary-ForegroundColor: hsl(240, 33%, 92%);
+  --primary-BackgoundColor: hsl(0, 68%, 42%);
   --secondary-BackgroundColor: hsl(240, 40%, 10%);
 }
 .cardContainer {
   aspect-ratio: 1 / 1.5;
   /* border: 2px solid var(--secondary-BackgroundColor); */
   color: var(--secondary-BackgroundColor);
-  /* border-radius: 8px; */
+  box-shadow: 0 0.25rem 1rem rgba(0 0 0 / 0.1);
+  border-radius: 8px;
 }
 .stacked {
   display: grid;
@@ -26,11 +28,15 @@
   align-self: end;
   margin: 0 0 2rem;
   padding: 0.5rem;
-  box-shadow: 0 0.25rem 1rem rgba(0 0 0 / 0.1);
+  /* box-shadow: 0 0.25rem 1rem rgba(0 0 0 / 0.1); */
   background-color: var(--primary-ForegroundColor);
 }
 .stockQuant {
   color: var(--secondary-BackgroundColor);
+}
+.title {
+  font-size: 1.5rem;
+  color: var(--primary-BackgoundColor);
 }
 /* @media screen and (max-width: 850px) {
   .cardContainer {

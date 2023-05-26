@@ -1,0 +1,14 @@
+th {
+  background-color: white;
+  color: black;
+}
+td {
+  background-color: rgb(180, 109, 68);
+  color: white;
+  text-align: center;
+  width: 50%;
+}
+table {
+  min-width: 40%;
+  min-height: 20%;
+}

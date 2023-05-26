@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../App.css";
+import "../../App.css";
+import "./Button.css";
 function Button({ stock, productId }) {
   const [currentQuantity, setCurrentQuantity] = useState({
     isClicked: false,
@@ -22,7 +23,7 @@ function Button({ stock, productId }) {
       >
         -
       </button>
-      <p className="productQuantity">Total items purchased : {count}</p>
+      <p className="productQuantity">Items purchased : {count}</p>
       <button
         id="increase"
         className="btn"

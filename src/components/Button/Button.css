@@ -1,0 +1,33 @@
+:root {
+  --primary-ForegroundColor: hsl(240, 33%, 92%);
+  --secondary-BackgroundColor: hsl(240, 40%, 10%);
+}
+
+.btn {
+  background-color: var(--secondary-BackgroundColor);
+  color: var(--primary-ForegroundColor);
+  font-size: 1rem;
+  /* border: thin solid white;
+     */
+}
+.btn:focus,
+.btn:active,
+.btn:hover {
+  outline: none;
+  border: none;
+}
+.btn:active {
+  transform: translateY(2px);
+}
+.btnContainer {
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  /* border: thin solid pink; */
+}
+.productQuantity {
+  margin-left: 4px;
+  margin-right: 4px;
+}

@@ -1,5 +1,6 @@
 import React from "react";
-import "../App.css";
+import "../../App.css";
+import "./Card.css";
 function Card({
   id,
   title,
@@ -13,10 +14,8 @@ function Card({
 }) {
   const image = images[0];
   return (
-    <div id={id} className="cardContainer">
-      <div className="imageContainer">
-        <img src={image} className="image" />
-      </div>
+    <div id={id} className="cardContainer stacked">
+      <img src={image} className="image" />
       <div className="descriptionContainer">
         <h2 className="title">{title}</h2>
         <p className="description">{description}</p>

@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 90vw;
+  /* margin: auto; */
+  margin-top: 4vh;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
+  /* border: 1px solid black; */
+}

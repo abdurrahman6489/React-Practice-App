@@ -1,0 +1,11 @@
+:root {
+  --primary-ForegroundColor: hsl(240, 33%, 92%);
+  --secondary-BackgroundColor: hsl(240, 40%, 10%);
+}
+.select {
+  padding: 5px;
+  background-color: var(--secondary-BackgroundColor);
+  color: var(--primary-ForegroundColor);
+  border-radius: 8px;
+  border: thin solid white;
+}

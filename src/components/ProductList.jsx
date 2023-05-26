@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import Card from "./Card";
-import Nav from "./Nav";
-import Button from "./Button";
-import Header from "./Header";
+import Card from "./Card/Card";
+import Nav from "./Nav/Nav";
+import Select from "./Select/Select";
+import Button from "./Button/Button";
+import Header from "./Header/Header";
 function ProductList() {
   const [productData, setProductData] = useState([]);
   const [sortBy, setSortBy] = useState("price");
@@ -14,12 +15,11 @@ function ProductList() {
     const response = await fetch("https://dummyjson.com/products");
     const data = await response.json();
     setProductData(data.products);
-    // .then((response) => response.json())
-    // .then((data) => setProductData(data.products));
   }
   useEffect(() => {
     makeApiCall();
   }, []);
+
   const options = [
     { value: "price", content: "Price" },
     { value: "discountPercentage", content: "Discount" },
@@ -34,6 +34,13 @@ function ProductList() {
       ? a[sortBy] - b[sortBy]
       : b[sortBy] - a[sortBy];
   });
+
+  const SELECTOBJ = { setSortBy, setSortingOrder };
+
+  function handleSelect(name, value) {
+    SELECTOBJ[name](value);
+  }
+
   function handleStock(productsAdded, productId) {
     console.log(productsAdded, productId);
     let index = sortedArray.findIndex((elem) => elem.id === productId);
@@ -47,34 +54,25 @@ function ProductList() {
     });
     setProductData(newProductsArray);
   }
+
   return (
-    <div>
+    <div className="container">
       <Header />
       <Nav>
-        <label htmlFor="sortBy">Sort By&nbsp;</label>
-        <select
+        <Select
           id="sortBy"
-          className="select"
-          onChange={(event) => setSortBy(event.target.value)}
-        >
-          {options.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.content}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="sortingOrder">&nbsp;In Order&nbsp;</label>
-        <select
+          onChange={handleSelect}
+          name="setSortBy"
+          labelContent="Sort by"
+          options={options}
+        />
+        <Select
           id="sortingOrder"
-          className="select"
-          onChange={(event) => setSortingOrder(event.target.value)}
-        >
-          {sortOrder.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.content}
-            </option>
-          ))}
-        </select>
+          onChange={handleSelect}
+          name="setSortingOrder"
+          labelContent="In Order"
+          options={sortOrder}
+        />
         <div className="totalExpense">Total Expense : Rs {totalExpense}/-</div>
       </Nav>
       <main className="mainContainer" key="main">

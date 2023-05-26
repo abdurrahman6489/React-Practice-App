@@ -1,0 +1,12 @@
+:root {
+  --primary-ForegroundColor: hsl(240, 33%, 92%);
+  --secondary-BackgroundColor: hsl(240, 40%, 10%);
+}
+.header {
+  width: 100%;
+  color: var(--secondary-BackgroundColor);
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 4rem;
+  font-weight: 100;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "../App.css";
-import Nav from "./Nav";
+import "../../App.css";
+import "./CountryList.css";
+import Nav from "../Nav/Nav";
 function CountryList() {
   const countries = [
     {
